@@ -63,11 +63,11 @@ export default function About() {
                 <CarouselContent className={"-ml-2 md:-ml-4"}>
                     {aboutCards.map((item, index) => (
                         <CarouselItem key={index} className={"pl-2 md:pl-4 md:basis-4/10"}>
-                            <Card className={"h-full bg-zinc-100"}>
+                            <Card className={"h-full bg-white/55 border-none"}>
                                 <CardHeader>
                                     <CardTitle className={"text-center text-xl "}>{item.title}</CardTitle>
                                 </CardHeader>
-                                <Separator className={""}/>
+                                {/*<Separator className={""}/>*/}
                                 <CardContent className={"text-center leading-relaxed"}>
                                     <p className={"text-lg text-gray-800 p-3"}>
                                         {item.content}
@@ -77,8 +77,8 @@ export default function About() {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious className={"bg-stone-300 border-stone-400 hover:bg-stone-400 rounded-xl"}/>
-                <CarouselNext className={"bg-stone-300 border-stone-400 hover:bg-stone-400 rounded-xl"}/>
+                <CarouselPrevious className={"bg-white/65 border-none hover:bg-white/75 rounded-xl"}/>
+                <CarouselNext className={"bg-white/65 border-none hover:bg-white/75 rounded-xl"}/>
             </Carousel>
         </section>
     )
