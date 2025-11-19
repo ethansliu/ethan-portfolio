@@ -13,7 +13,7 @@ export default function Header() {
 
                 <div className="flex gap-4 absolute right-0">
                     <a
-                        href="https://www.linkedin.com/in/ethan-liu-51a91921b/"
+                        href="/Ethan-Liu-Resume.pdf"
                         className={"text-2xl rounded-4xl px-6 py-3 hover:bg-white/10 bg-white/5 shadow-2xl/30"}
                         target="_blank"
                         rel="noopener noreferrer"
