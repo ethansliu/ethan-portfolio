@@ -39,6 +39,9 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+    --font-jost: "Jost", sans-serif;
+    --font-handjet: "Handjet", sans-serif;
+    --font-redhat: "Red Hat Text", sans-serif;
 }
 
 :root {
@@ -184,3 +187,23 @@ body {
         transform: translateX(1);
     }
 }
+
+/* Title styling */
+[data-sonner-toast] [data-title] {
+    color: #1f2937 !important; /* gray-800 */
+    font-family: 'Red Hat Display', sans-serif !important;
+    text-align: center !important;
+}
+
+/* Description/message styling */
+[data-sonner-toast] [data-description] {
+    color: #374151 !important; /* gray-700 */
+    font-family: 'Red Hat Display', sans-serif !important;
+    text-align: center !important;
+}
+
+/* Center the entire content */
+[data-sonner-toast] [data-content] {
+    text-align: center !important;
+}
+
