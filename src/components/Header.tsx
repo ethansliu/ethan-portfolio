@@ -1,34 +1,55 @@
-import {FaGithub, FaRegFileAlt} from "react-icons/fa"
+import { FaGithub, FaRegFileAlt } from "react-icons/fa"
 
 export default function Header() {
     return (
-        <header className="px-10 py-10">
-            <nav className="flex justify-center items-center relative">
-                {/*<a href="#hero" className={"text-3xl"}> Ethan Liu </a>*/}
-                <div className="flex gap-10 bg-white/15 border-white/10 shadow-xl rounded-3xl h-24 w-xl justify-center items-center font-jost font-medium">
-                    <a href="#about" className={"text-2xl rounded-3xl px-6 py-3 hover:bg-white/5"}> About </a>
-                    <a href="#projects" className={"text-2xl rounded-3xl px-6 py-3 hover:bg-white/5"}> Projects </a>
-                    <a href="#contact" className={"text-2xl rounded-3xl px-6 py-3 hover:bg-white/5"}> Contact </a>
+        <header className="px-4 py-6 sm:px-6 sm:py-8 lg:px-10 lg:py-10">
+            <nav className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-0 lg:relative">
+
+                {/* Main navigation */}
+                <div className="flex gap-3 sm:gap-6 lg:gap-10 bg-white/15 border border-white/10 shadow-xl rounded-2xl sm:rounded-3xl h-14 sm:h-20 lg:h-24 sm:w-auto justify-center items-center font-jost font-medium px-2 sm:px-4">
+                    <a
+                        href="#about"
+                        className="text-base sm:text-xl lg:text-2xl rounded-2xl sm:rounded-3xl px-3 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 hover:bg-white/5 transition-all"
+                    >
+                        About
+                    </a>
+                    <a
+                        href="#projects"
+                        className="text-base sm:text-xl lg:text-2xl rounded-2xl sm:rounded-3xl px-3 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 hover:bg-white/5 transition-all"
+                    >
+                        Projects
+                    </a>
+                    <a
+                        href="#contact"
+                        className="text-base sm:text-xl lg:text-2xl rounded-2xl sm:rounded-3xl px-3 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 hover:bg-white/5 transition-all"
+                    >
+                        Contact
+                    </a>
                 </div>
 
-                <div className="flex gap-4 absolute right-0">
+                {/* Icons */}
+                <div className="flex gap-4 lg:absolute lg:right-0">
                     <a
                         href="/Ethan-Liu-Resume.pdf"
-                        className={"text-2xl rounded-4xl px-6 py-3 hover:bg-white/10 bg-white/5 shadow-2xl/30"}
+                        className="rounded-full px-4 py-4 sm:px-5 sm:py-5 lg:px-6 lg:py-3 hover:bg-white/10 bg-white/5 border border-white/10 shadow-xl transition-all"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="View Resume"
                     >
-                        <FaRegFileAlt className="w-6 h-6" />
+                        <FaRegFileAlt className="w-5 h-5 lg:w-6 lg:h-6" />
                     </a>
+
                     <a
                         href="https://github.com/ethansliu"
-                        className={"text-2xl rounded-4xl px-6 py-3 hover:bg-white/10 bg-white/5 shadow-2xl/30"}
+                        className="rounded-full px-4 py-4 sm:px-5 sm:py-5 lg:px-6 lg:py-3 hover:bg-white/10 bg-white/5 border border-white/10 shadow-xl transition-all"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Visit GitHub Profile"
                     >
-                        <FaGithub className="w-6 h-6" />
+                        <FaGithub className="w-5 h-5 lg:w-6 lg:h-6" />
                     </a>
                 </div>
+
             </nav>
         </header>
     )

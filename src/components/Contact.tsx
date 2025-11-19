@@ -20,12 +20,12 @@ export default function Contact() {
         setIsHolding(true)
         let progress = 0
 
-        progressIntervalRef.current = setInterval(() => {
+        progressIntervalRef.current = window.setInterval(() => {
             progress += 100 / 10
             setHoldProgress(progress)
         }, 100)
 
-        holdTimerRef.current = setTimeout(() => {
+        holdTimerRef.current = window.setTimeout(() => {
             handleSubmit()
         }, 1000)
     }
@@ -81,52 +81,56 @@ export default function Contact() {
     }
 
     return (
-        <section id="contact" className="py-20 flex justify-center pb-50 flex-col items-center text-center">
-            <h2 className={"text-4xl justify-center items-center px-15 bg-white/10 border-none rounded-4xl h-24 min-w-1/6 inline-flex font-jost font-semibold"}>
+        <section
+            id="contact"
+            className="py-12 sm:py-16 lg:py-20 flex justify-center pb-40 sm:pb-40 lg:pb-50 flex-col items-center text-center px-10 sm:px-20"
+        >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl px-6 sm:px-10 lg:px-15 bg-white/10 border-none rounded-3xl sm:rounded-4xl h-16 sm:h-20 lg:h-24 min-w-fit inline-flex items-center justify-center font-jost font-semibold">
                 Contact
             </h2>
-            <Card className="max-w-xl w-full bg-white/40 border-white/5 shadow-2xl/30 mt-20">
+
+            <Card className="max-w-xl w-full bg-white/40 border-white/5 shadow-2xl/30 mt-10 sm:mt-16 lg:mt-20 mx-4">
                 <CardHeader>
-                    <CardTitle className="text-3xl text-center font-handjet font-light">Have a question? Let's chat!</CardTitle>
+                    <CardTitle className="text-xl sm:text-2xl lg:text-3xl text-center font-handjet font-light">
+                        Have a question? Let's chat!
+                    </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
+
+                <CardContent className="space-y-4 sm:space-y-6 pl-10 pr-10">
                     <div className="space-y-2">
-                        {/*<Label htmlFor="name">Name</Label>*/}
                         <Input
                             id="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Your name"
-                            className={"border-white/20 font-redhat font-medium text-gray-800 focus-visible:ring-gray-50/10 focus-visible:border-gray-100/10"}
+                            className="border-white/20 font-redhat font-medium text-gray-800 focus-visible:ring-gray-50/10 focus-visible:border-gray-100/10 text-sm sm:text-base h-10 sm:h-11"
                         />
                     </div>
 
                     <div className="space-y-2">
-                        {/*<Label htmlFor="email">Email</Label>*/}
                         <Input
                             id="email"
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Your email"
-                            className={"border-white/20 font-redhat font-medium text-gray-800 focus-visible:ring-gray-50/10 focus-visible:border-gray-100/10"}
+                            className="border-white/20 font-redhat font-medium text-gray-800 focus-visible:ring-gray-50/10 focus-visible:border-gray-100/10 text-sm sm:text-base h-10 sm:h-11"
                         />
                     </div>
 
                     <div className="space-y-2">
-                        {/*<Label htmlFor="message">Message</Label>*/}
                         <Textarea
                             id="message"
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             placeholder="Your message..."
                             rows={6}
-                            className={"border-white/20 font-redhat font-medium text-gray-800 focus-visible:ring-gray-50/10 focus-visible:border-gray-100/10"}
+                            className="border-white/20 font-redhat font-medium text-gray-800 focus-visible:ring-gray-50/10 focus-visible:border-gray-100/10 text-sm sm:text-base min-h-32 sm:min-h-40"
                         />
                     </div>
 
                     <Button
-                        className="w-1/3 relative overflow-hidden bg-white/10 hover:bg-white/15 font-redhat font-medium text-gray-800 shadow-2xl border border-white/5 "
+                        className=" sm:w-2/3 lg:w-2/5 xl:w-3/5 relative overflow-hidden bg-white/10 hover:bg-white/15 font-redhat font-medium text-gray-800 shadow-2xl border border-white/5 text-sm sm:text-base h-11 sm:h-12"
                         onMouseDown={handleMouseDown}
                         onMouseUp={handleMouseUp}
                         onMouseLeave={handleMouseUp}
@@ -134,11 +138,11 @@ export default function Contact() {
                         onTouchEnd={handleMouseUp}
                         disabled={!name || !email || !message}
                     >
-            <span className="relative z-10">
-              {isHolding ? "Keep holding to submit..." : "Hold to Submit"}
-            </span>
+                        <span className="relative z-10">
+                            {isHolding ? "Keep holding to submit..." : "Hold to Submit"}
+                        </span>
                         <div
-                            className="absolute left-0 top-0 h-full bg-black/15 transition-all duration-100 "
+                            className="absolute left-0 top-0 h-full bg-black/15 transition-all duration-100"
                             style={{ width: `${holdProgress}%` }}
                         />
                     </Button>
