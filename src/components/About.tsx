@@ -114,6 +114,33 @@ export default function About() {
         updateSlides()
     }, [api])
 
+    const [currentSlide, setCurrentSlide] = useState(0)
+
+    useEffect(() => {
+        if (!api) return
+
+        const updateSlides = () => {
+            const slides = api.slideNodes()
+            const activeIndex = api.selectedScrollSnap()
+
+            setCurrentSlide(activeIndex % 3) // Modulo 3 since you have 3 unique cards
+
+            slides.forEach((slide, index) => {
+                if (index === activeIndex) {
+                    slide.style.filter = "blur(0px)"
+                    slide.style.opacity = "1"
+                } else {
+                    slide.style.filter = "blur(3px)"
+                    slide.style.opacity = "0.5"
+                }
+            })
+        }
+
+        api.on("select", updateSlides)
+        updateSlides()
+    }, [api])
+
+
     return (
         <section
             id="about"
@@ -156,6 +183,22 @@ export default function About() {
                 <CarouselNext className="hidden lg:flex bg-white/50 border-none hover:bg-white/60 rounded-xl" />
 
             </Carousel>
+
+            <div className="flex justify-center gap-2 mt-6 2xl:hidden">
+                {[0, 1, 2].map((index) => (
+                    <button
+                        key={index}
+                        onClick={() => api?.scrollTo(index)}
+                        className={`h-2 rounded-full transition-all ${
+                            currentSlide === index
+                                ? "w-8 bg-white/60"
+                                : "w-2 bg-white/30"
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                    />
+                ))}
+            </div>
+
         </section>
     )
 }
